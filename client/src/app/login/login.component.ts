@@ -31,7 +31,14 @@ export class LoginComponent implements OnInit {
                     this.router.navigate(['/tasks']);
                 },
                 error => {
-                    alert(error);
+                    if (error.status === 401) {
+                        alert('Wrong username and password');
+                    }
+                    else {
+                        alert('Something went wrong with the server please make sure the server is running.');
+                    }
+
+                    console.log(error.status);
                     this.loading = false;
                 });
     }
