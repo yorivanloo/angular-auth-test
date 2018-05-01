@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+.mat-checkbox-inner-container .mat-checkbox-background {
+    transition: none;
+}
+
+.jumbotron .mat-card {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.mat-card-header,
+.mat-list-item-content {
+    justify-content: space-between;
+}

@@ -1,0 +1,37 @@
+<mat-card class="todoapp">
+  <mat-card-header>
+    <mat-card-title>Tasks</mat-card-title>
+    <a mat-raised-button [routerLink]="['/']">Logout</a>
+  </mat-card-header>
+  <mat-card-content>
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Title" type="title" class="form-control" name="title" [(ngModel)]="model.title" #title="ngModel"
+        />
+      </mat-form-field>
+      <button mat-fab (click)="add()">
+        <mat-icon>+</mat-icon>
+      </button>
+    </form>
+  </mat-card-content>
+
+  <mat-card-content *ngIf="tasks && tasks.length">
+    <mat-list>
+      <form>
+        <mat-list-item *ngFor="let task of tasks; let index=index" class="list-item">
+
+          <mat-checkbox (click)="update(index)" type="checkbox" [name]="'item'+index" [(ngModel)]="task.completed">
+            <span [class.completed]="task.completed">{{task.title}}</span>
+          </mat-checkbox>
+
+          <span>
+            <button mat-mini-fab (click)="delete(index)" color="primary">
+              <mat-icon>-</mat-icon>
+            </button>
+          </span>
+
+        </mat-list-item>
+      </form>
+    </mat-list>
+  </mat-card-content>
+</mat-card>
